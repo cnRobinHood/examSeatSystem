@@ -58,6 +58,13 @@
         <property name="roomId"/>
 
     </class>
+    <class name="entities.ClassArrangedExamInfo" table="classArrangedExamInfo">
+        <composite-id>
+            <key-property name="examId"/>
+            <key-property name="classId"/>
+        </composite-id>
+
+    </class>
 
 
 
