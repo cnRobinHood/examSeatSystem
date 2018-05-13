@@ -1,10 +1,12 @@
 package entities;
 
+import java.io.Serializable;
+
 /**
  * Created by liu on 18-5-13.
  * Enjoy it.
  */
-public class StudentSeatInfo {
+public class StudentSeatInfo implements Serializable {
     private int studentId;
     private int examId;
     private int roomId;

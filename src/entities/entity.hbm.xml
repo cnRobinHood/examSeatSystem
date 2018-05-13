@@ -20,7 +20,45 @@
             <key-property name="roomId"/>
         </composite-id>
     </class>
-    
+    <class name="entities.CourseInfo" table="courseInfo">
+        <id name="courseId"/>
+        <property name="courseName"/>
+        <property name="subjectTeacher"/>
+    </class>
+    <class name="entities.ExamInfo" table="examInfo">
+        <id name="examId"/>
+        <property name="courseId"/>
+        <property name="examTime"/>
+    </class>
+    <class name="entities.Student" table="student">
+        <id name="studentId"/>
+        <property name="studentName"/>
+        <property name="classId"/>
+        <property name="sex"/>
+    </class>
+    <class name="entities.StudentSeatInfo" table="studentSeatInfo">
+        <composite-id>
+            <key-property name="examId"/>
+            <key-property name="studentId"/>
+        </composite-id>
+        <property name="roomId"/>
+        <property name="seatNum"/>
+    </class>
+    <class name="entities.SupervisorInfo" table="supervisorInfo">
+        <id name="teacherId"/>
+        <property name="teacherName"/>
+
+    </class>
+    <class name="entities.SupervisorUseInfo" table="supervisorUseInfo">
+        <composite-id>
+            <key-property name="examId"/>
+            <key-property name="teacherId"/>
+        </composite-id>
+        <property name="examTime"/>
+        <property name="roomId"/>
+
+    </class>
+
 
 
 </hibernate-mapping>
