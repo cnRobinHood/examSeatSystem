@@ -29,6 +29,8 @@
         <id name="examId"/>
         <property name="courseId"/>
         <property name="examTime"/>
+        <property name="weeks"/>
+        <property name="instructorId"/>
     </class>
     <class name="entities.Student" table="student">
         <id name="studentId"/>
@@ -41,6 +43,7 @@
             <key-property name="examId"/>
             <key-property name="studentId"/>
         </composite-id>
+        <property name="studentName"/>
         <property name="roomId"/>
         <property name="seatNum"/>
     </class>
@@ -63,9 +66,13 @@
             <key-property name="examId"/>
             <key-property name="classId"/>
         </composite-id>
+        <property name="examTime"/>
 
     </class>
-
+    <class name="entities.Instructor" table="instructor">
+        <id name="instructorId"/>
+        <property name="instructorName"/>
+    </class>
 
 
 </hibernate-mapping>

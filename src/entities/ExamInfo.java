@@ -6,8 +6,26 @@ package entities;
  */
 public class ExamInfo {
     private String courseId;
-    private String examId;
+    private int examId;
     private String examTime;
+    private int instructorId;
+    private int weeks;
+
+    public int getInstructorId() {
+        return instructorId;
+    }
+
+    public void setInstructorId(int instructorId) {
+        this.instructorId = instructorId;
+    }
+
+    public int getWeeks() {
+        return weeks;
+    }
+
+    public void setWeeks(int weeks) {
+        this.weeks = weeks;
+    }
 
     public String getCourseId() {
         return courseId;
@@ -17,11 +35,11 @@ public class ExamInfo {
         this.courseId = courseId;
     }
 
-    public String getExamId() {
+    public int getExamId() {
         return examId;
     }
 
-    public void setExamId(String examId) {
+    public void setExamId(int examId) {
         this.examId = examId;
     }
 

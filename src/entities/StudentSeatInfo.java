@@ -8,9 +8,18 @@ import java.io.Serializable;
  */
 public class StudentSeatInfo implements Serializable {
     private int studentId;
+    private String studentName;
     private int examId;
     private int roomId;
     private int seatNum;
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
     public int getStudentId() {
         return studentId;

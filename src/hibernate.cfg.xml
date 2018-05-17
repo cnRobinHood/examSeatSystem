@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.url">
-                jdbc:mysql://127.0.0.1/examHibernate?unicode=true&amp;characterEncoding=UTF-8
+            jdbc:mysql://127.0.0.1/examHibernate?unicode=true&amp;characterEncoding=UTF-8
         </property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>

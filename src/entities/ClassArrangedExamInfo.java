@@ -9,6 +9,15 @@ import java.io.Serializable;
 public class ClassArrangedExamInfo implements Serializable {
     private int classId;
     private int examId;
+    private String examTime;
+
+    public String getExamTime() {
+        return examTime;
+    }
+
+    public void setExamTime(String examTime) {
+        this.examTime = examTime;
+    }
 
     public int getClassId() {
         return classId;

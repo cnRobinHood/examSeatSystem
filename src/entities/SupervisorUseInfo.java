@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class SupervisorUseInfo implements Serializable {
     private int teacherId;
     private int examId;
-    private int examTime;
+    private String examTime;
     private int roomId;
 
     public int getTeacherId() {
@@ -28,11 +28,11 @@ public class SupervisorUseInfo implements Serializable {
         this.examId = examId;
     }
 
-    public int getExamTime() {
+    public String getExamTime() {
         return examTime;
     }
 
-    public void setExamTime(int examTime) {
+    public void setExamTime(String examTime) {
         this.examTime = examTime;
     }
 
