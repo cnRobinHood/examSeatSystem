@@ -19,8 +19,22 @@ import java.util.List;
 public class InstructorDao {
     SessionFactory sessionFactory = GetSessionFactory.getFactory();
 
+    //返回可使用的辅导员信息
+    public List<Instructor> getInstructorInfo() {
+        List<Instructor> instructors;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "select instructor from Instructor instructor";
+        Query query = session.createQuery(hql);
+        instructors = query.list();
+        transaction.commit();
+        session.close();
+        return instructors;
+
+    }
+
     //返回辅导员可以看到自己要负责的考试的相关信息
-    public List<InstructorJson> getinstructorJson(String instructorId) {
+    public List<InstructorJson> getInstructorJson(String instructorId) {
         List<InstructorJson> instructorJsons = new ArrayList<>();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
