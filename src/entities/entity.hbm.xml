@@ -12,6 +12,7 @@
     <class name="entities.Classroom" table="classroom">
         <id name="roomid"/>
         <property name="imagePath"/>
+        <property name="seats"/>
     </class>
     <class name="entities.ClassroomUseInfo" table="classroomUseInfo">
         <composite-id>

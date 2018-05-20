@@ -20,6 +20,8 @@ public class ClassInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
         String userTime = req.getParameter("time");
         List<ClassInfo> classInfos = classInfoService.availableClassInfo(userTime);
         resp.getWriter().write(JSON.toJSONString(classInfos));
@@ -28,6 +30,9 @@ public class ClassInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
+
         String userTime = req.getParameter("time");
         List<ClassInfo> classInfos = classInfoService.availableClassInfo(userTime);
         resp.getWriter().write(JSON.toJSONString(classInfos));

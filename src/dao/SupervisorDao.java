@@ -44,7 +44,7 @@ public class SupervisorDao {
         supervisorUseInfos = query.list();
         String hqlTeacherName = "select supervisorInfo from SupervisorInfo supervisorInfo where supervisorInfo.teacherId=:teacherId";
         Query queryTeacherName = session.createQuery(hqlTeacherName);
-        query.setInteger("teacherId", Integer.parseInt(teacherId));
+        queryTeacherName.setInteger("teacherId", Integer.parseInt(teacherId));
         SupervisorInfo supervisorInfo = (SupervisorInfo) queryTeacherName.list().get(0);
         for (SupervisorUseInfo s : supervisorUseInfos
                 ) {

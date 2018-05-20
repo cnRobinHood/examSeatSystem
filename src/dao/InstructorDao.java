@@ -42,7 +42,7 @@ public class InstructorDao {
         Query query = session.createQuery(hql);
         query.setInteger("instructorId", Integer.parseInt(instructorId));
         Instructor instructor = (Instructor) query.list().get(0);
-        String hqlExamInfo = "select examInfo from ExamInfo examInfo where examInfo.examId=:instructorId";
+        String hqlExamInfo = "select examInfo from ExamInfo examInfo where examInfo.instructorId=:instructorId";
         Query queryExamInfo = session.createQuery(hqlExamInfo);
         queryExamInfo.setInteger("instructorId", Integer.parseInt(instructorId));
         for (Object o : queryExamInfo.list()
@@ -82,7 +82,7 @@ public class InstructorDao {
         List<StudentSeatInfo> studentSeatInfos = new ArrayList<>();
         Session session = sessionFactory.openSession();
         Transaction deleteTransaction = session.beginTransaction();
-        String hqlDelete = "delete from StudentSeatInfo studentSeatInfo where studentSeatInfo.examId";
+        String hqlDelete = "delete from StudentSeatInfo studentSeatInfo where studentSeatInfo.examId=:examId";
         Query deleteStudentSeatInfo = session.createQuery(hqlDelete);
         deleteStudentSeatInfo.setInteger("examId", examId);
         deleteStudentSeatInfo.executeUpdate();
@@ -113,16 +113,19 @@ public class InstructorDao {
         }
         Collections.shuffle(studentSeatInfos);
         String hqlClassroom =
-                "select classroom from Classroom classroom where classroom.roomId  in (select roomId from ClassroomUseInfo classroomUseInfo where classroomUseInfo.examId=:examId)";
+                "select classroom from Classroom classroom where classroom.roomid  in (select roomId from ClassroomUseInfo classroomUseInfo where classroomUseInfo.examId=:examId)";
         Query queryClassroom = session.createQuery(hqlClassroom);
         queryClassroom.setInteger("examId", examId);
         for (Object o : queryClassroom.list()
                 ) {
             Classroom classroom = (Classroom) o;
             for (int i = 0; i < classroom.getSeats(); i++) {
-                studentSeatInfos.get(count).setSeatNum(i + 1);
-                studentSeatInfos.get(count).setRoomId(classroom.getRoomid());
-                count++;
+                if (studentSeatInfos.size() >= count+1) {
+                    studentSeatInfos.get(count).setSeatNum(i + 1);
+                    studentSeatInfos.get(count).setRoomId(classroom.getRoomid());
+                    count++;
+                }
+
             }
 
         }
